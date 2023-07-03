@@ -9,7 +9,7 @@ function Dashboard(props) {
     const [employee, setEmployee]  = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:8080/employee").then(res=>setEmployee(res.data.employee));
+        axios.get("https://thankful-wasp-waistcoat.cyclic.app/employee").then(res=>setEmployee(res.data.employee));
     },[])
 
     return (

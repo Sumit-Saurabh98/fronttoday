@@ -26,7 +26,7 @@ function HomePage(props) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/signup', {
+      const response = await axios.post('https://thankful-wasp-waistcoat.cyclic.app/signup', {
         email: signup.email,
         password: signup.password,
         conformPassword: signup.conformPassword
@@ -52,7 +52,7 @@ function HomePage(props) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/login', {
+      const response = await axios.post('https://thankful-wasp-waistcoat.cyclic.app/login', {
         email: login.email,
         password: login.password
       });
