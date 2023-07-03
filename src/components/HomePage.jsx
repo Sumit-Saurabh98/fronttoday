@@ -11,10 +11,10 @@ import {
   useToast
 } from '@chakra-ui/react';
 import axios from 'axios';
-import { Navigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function HomePage(props) {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
     const toast = useToast()
   const [signup, setSignup] = useState({
     email: '',
@@ -30,14 +30,7 @@ function HomePage(props) {
         email: signup.email,
         password: signup.password,
         conformPassword: signup.conformPassword
-      }).then(()=>{
-        if(response.data.msg==="login success"){
-          <Navigate to="/dashboard" />
-        }else{
-          <Navigate to="/" />
-        }
       })
-
       toast({
         title: response.data.msg,
         duration: 9000,
@@ -57,7 +50,9 @@ function HomePage(props) {
       const response = await axios.post('https://thankful-wasp-waistcoat.cyclic.app/login', {
         email: login.email,
         password: login.password
-      });
+      }).then(()=>[
+        navigate("/dashboard")
+      ])
       toast({
         title: response.data.msg,
         duration: 9000,
