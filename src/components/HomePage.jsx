@@ -11,7 +11,7 @@ import {
   useToast
 } from '@chakra-ui/react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
 function HomePage(props) {
     const navigate = useNavigate()
@@ -32,9 +32,9 @@ function HomePage(props) {
         conformPassword: signup.conformPassword
       });
       if(response.data.msg==="login success"){
-        navigate("/dashboard")
+        <Navigate to="/dashboard" />
       }else{
-        navigate("/")
+        <Navigate to="/" />
       }
       toast({
         title: response.data.msg,
