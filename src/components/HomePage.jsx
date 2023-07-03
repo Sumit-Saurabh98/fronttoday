@@ -30,12 +30,14 @@ function HomePage(props) {
         email: signup.email,
         password: signup.password,
         conformPassword: signup.conformPassword
-      });
-      if(response.data.msg==="login success"){
-        <Navigate to="/dashboard" />
-      }else{
-        <Navigate to="/" />
-      }
+      }).then(()=>{
+        if(response.data.msg==="login success"){
+          <Navigate to="/dashboard" />
+        }else{
+          <Navigate to="/" />
+        }
+      })
+
       toast({
         title: response.data.msg,
         duration: 9000,
